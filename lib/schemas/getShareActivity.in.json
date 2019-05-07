@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

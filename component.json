@@ -1,0 +1,628 @@
+{
+    "title": "ExaVault",
+    "description": "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own application.\n\nExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.\n",
+    "docsUrl": "https://www.exavault.com/developer/",
+    "url": "https://api.apis.guru/v2/specs/exavault.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.exavault.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "authenticateUser": {
+            "main": "./lib/actions/authenticateUser.js",
+            "title": "Authenticates a user into the API",
+            "description": "Returns access token in the Response object",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/authenticateUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "checkFilesExist": {
+            "main": "./lib/actions/checkFilesExist.js",
+            "title": "Checks to see if each file or folder in the array exists",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/checkFilesExist.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "copyResources": {
+            "main": "./lib/actions/copyResources.js",
+            "title": "Copies files, folders to the destination path",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/copyResources.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createFolder": {
+            "main": "./lib/actions/createFolder.js",
+            "title": "Create a folder at a specified path",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createFolder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createNotification": {
+            "main": "./lib/actions/createNotification.js",
+            "title": "Creates a new Notification object",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createShare": {
+            "main": "./lib/actions/createShare.js",
+            "title": "Create a new Share object",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createUser": {
+            "main": "./lib/actions/createUser.js",
+            "title": "Adds a new subaccount user to the current account",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteNotification": {
+            "main": "./lib/actions/deleteNotification.js",
+            "title": "Deletes a Notification by ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteResources": {
+            "main": "./lib/actions/deleteResources.js",
+            "title": "Delete the specified files/folders",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'delete' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteResources.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteShare": {
+            "main": "./lib/actions/deleteShare.js",
+            "title": "Deletes a Share by ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteUser": {
+            "main": "./lib/actions/deleteUser.js",
+            "title": "Deletes a subaccount user for the current account",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'manage users' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAccount": {
+            "main": "./lib/actions/getAccount.js",
+            "title": "Gets the account object for the currently logged in user",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCurrentUser": {
+            "main": "./lib/actions/getCurrentUser.js",
+            "title": "Gets the user object for the currently logged in user",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCurrentUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDownloadFileUrl": {
+            "main": "./lib/actions/getDownloadFileUrl.js",
+            "title": "Returns a unique URL for handling file downloads",
+            "description": "Requires access token obtained via the authenticateUser operation. URL points at the appropriate storage server for file download.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDownloadFileUrl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFileActivityLogs": {
+            "main": "./lib/actions/getFileActivityLogs.js",
+            "title": "Returns a list of account activity. Allows for searching the activity log.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFileActivityLogs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getFolders": {
+            "main": "./lib/actions/getFolders.js",
+            "title": "Get folders for a specified path",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getFolders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getNotification": {
+            "main": "./lib/actions/getNotification.js",
+            "title": "Returns a notification based on the given ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getNotificationActivity": {
+            "main": "./lib/actions/getNotificationActivity.js",
+            "title": "Returns all notification activity for the current user",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getNotificationActivity.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getNotifications": {
+            "main": "./lib/actions/getNotifications.js",
+            "title": "Returns all notifications for the current user",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getNotifications.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getResourceList": {
+            "main": "./lib/actions/getResourceList.js",
+            "title": "Get a listing of files/folders for the specified path",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'list files' permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getResourceList.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getResourceProperties": {
+            "main": "./lib/actions/getResourceProperties.js",
+            "title": "Get the properties for each of the specified files/folders",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getResourceProperties.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getShare": {
+            "main": "./lib/actions/getShare.js",
+            "title": "Returns a share by the specified ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getShareActivity": {
+            "main": "./lib/actions/getShareActivity.js",
+            "title": "Return activity log entries for the specified Share ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getShareActivity.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getShares": {
+            "main": "./lib/actions/getShares.js",
+            "title": "Returns all Shares for the current user",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getShares.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUploadFileUrl": {
+            "main": "./lib/actions/getUploadFileUrl.js",
+            "title": "Returns a unique URL for handling file uploads",
+            "description": "Requires access token obtained via the authenticateUser operation. Called before an upload is started to get URL to appropriate storage server. Available to users with the 'write' permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUploadFileUrl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUser": {
+            "main": "./lib/actions/getUser.js",
+            "title": "Get the specified subaccount user for the current account",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUsers": {
+            "main": "./lib/actions/getUsers.js",
+            "title": "Gets the user object for the currently logged in user",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission set",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "logoutUser": {
+            "main": "./lib/actions/logoutUser.js",
+            "title": "Removes user's access token from database, logging them out of API",
+            "description": "Requires access token obtained via the authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/logoutUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "moveResources": {
+            "main": "./lib/actions/moveResources.js",
+            "title": "Moves files, folders to the destination path",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/moveResources.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "previewFile": {
+            "main": "./lib/actions/previewFile.js",
+            "title": "Returns a resized image of the specified document for support file types",
+            "description": "Requires access token obtained via authenticateUser operation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/previewFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "renameResource": {
+            "main": "./lib/actions/renameResource.js",
+            "title": "Rename a file or folder at the specified path",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'modify' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/renameResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateNotification": {
+            "main": "./lib/actions/updateNotification.js",
+            "title": "Updates an existing notification by ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateNotification.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateShare": {
+            "main": "./lib/actions/updateShare.js",
+            "title": "Update an existing Share by ID",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateShare.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateUser": {
+            "main": "./lib/actions/updateUser.js",
+            "title": "Updates a subaccount user for the current account",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with 'manage users' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "userAvailable": {
+            "main": "./lib/actions/userAvailable.js",
+            "title": "Returns true if requested username has not already been taken in the system",
+            "description": "Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/userAvailable.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

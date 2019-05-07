@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "filePath": {
+            "required": true,
+            "type": "string"
+        },
+        "newName": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "path": {
+            "required": true,
+            "type": "string"
+        },
+        "action": {
+            "required": true,
+            "type": "string"
+        },
+        "usernames": {
+            "required": true,
+            "type": "string"
+        },
+        "sendEmail": {
+            "required": true,
+            "type": "boolean"
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

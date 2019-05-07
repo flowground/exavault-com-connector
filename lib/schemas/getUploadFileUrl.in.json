@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "fileSize": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "destinationPath": {
+            "required": true,
+            "type": "string"
+        },
+        "allowOverwrite": {
+            "required": false,
+            "type": "boolean",
+            "default": true
+        },
+        "resume": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

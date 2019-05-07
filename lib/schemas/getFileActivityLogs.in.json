@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "sortBy": {
+            "required": false,
+            "type": "string",
+            "default": "sort_logs_date"
+        },
+        "sortOrder": {
+            "required": false,
+            "type": "string",
+            "default": "desc"
+        },
+        "filterBy": {
+            "required": false,
+            "type": "string"
+        },
+        "filter": {
+            "required": false,
+            "type": "string"
+        },
+        "itemLimit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

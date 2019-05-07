@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "name": {
+            "type": "string"
+        },
+        "filePaths": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "subject": {
+            "type": "string"
+        },
+        "message": {
+            "type": "string"
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "ccEmail": {
+            "type": "string"
+        },
+        "requireEmail": {
+            "type": "boolean"
+        },
+        "accessMode": {
+            "type": "string"
+        },
+        "embed": {
+            "type": "boolean"
+        },
+        "isPublic": {
+            "type": "boolean"
+        },
+        "password": {
+            "type": "string"
+        },
+        "expiration": {
+            "type": "string"
+        },
+        "hasNotification": {
+            "type": "boolean"
+        },
+        "notificationEmails": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "fileDropCreateFolders": {
+            "type": "boolean"
+        }
+    }
+}

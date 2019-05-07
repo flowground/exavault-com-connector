@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "sortBy": {
+            "required": true,
+            "type": "string"
+        },
+        "sortOrder": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

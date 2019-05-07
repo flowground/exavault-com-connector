@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "filePaths": {
+            "required": true,
+            "type": "string"
+        },
+        "downloadName": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

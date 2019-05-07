@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "type": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "filePaths": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "subject": {
+            "required": false,
+            "type": "string"
+        },
+        "message": {
+            "required": false,
+            "type": "string"
+        },
+        "emails": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "ccEmail": {
+            "required": false,
+            "type": "string"
+        },
+        "requireEmail": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "accessMode": {
+            "required": false,
+            "type": "string"
+        },
+        "embed": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "isPublic": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "password": {
+            "required": false,
+            "type": "string"
+        },
+        "expiration": {
+            "required": false,
+            "type": "string"
+        },
+        "hasNotification": {
+            "required": false,
+            "type": "boolean"
+        },
+        "notificationEmails": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "fileDropCreateFolders": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

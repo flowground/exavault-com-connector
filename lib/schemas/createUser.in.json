@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "username": {
+            "required": true,
+            "type": "string"
+        },
+        "destinationFolder": {
+            "required": true,
+            "type": "string"
+        },
+        "email": {
+            "required": true,
+            "type": "string"
+        },
+        "password": {
+            "required": true,
+            "type": "string"
+        },
+        "role": {
+            "required": true,
+            "type": "string"
+        },
+        "permissions": {
+            "required": true,
+            "type": "string"
+        },
+        "timeZone": {
+            "required": true,
+            "type": "string",
+            "default": "America/Los_Angeles"
+        },
+        "nickname": {
+            "type": "string"
+        },
+        "expiration": {
+            "type": "string"
+        },
+        "locked": {
+            "type": "boolean",
+            "default": false
+        },
+        "welcomeEmail": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

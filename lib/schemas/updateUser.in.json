@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "username": {
+            "type": "string"
+        },
+        "nickname": {
+            "type": "string"
+        },
+        "expiration": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "destinationFolder": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
+        },
+        "locked": {
+            "type": "boolean"
+        },
+        "role": {
+            "type": "string"
+        },
+        "permissions": {
+            "type": "string"
+        }
+    }
+}

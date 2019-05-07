@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "required": true,
+            "type": "string"
+        },
+        "path": {
+            "required": true,
+            "type": "string"
+        },
+        "sortBy": {
+            "required": true,
+            "type": "string"
+        },
+        "sortOrder": {
+            "required": true,
+            "type": "string"
+        },
+        "offset": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "limit": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "detailed": {
+            "type": "boolean",
+            "default": false
+        },
+        "pattern": {
+            "type": "string"
+        }
+    }
+}
